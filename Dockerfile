@@ -8,8 +8,6 @@ RUN set -x && \
     apk del build-dependencies postgresql-dev python3-dev && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["migra"]
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
-CMD ["migra", "--help"]
+CMD ["--help"]
